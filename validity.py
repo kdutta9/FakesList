@@ -33,12 +33,12 @@ def validity(item, price, desc):
     for i in range(len(items)):
         if item == items[i]:
             lower_bound = np.median(datasets[i].column(1)) - (1 * np.std(datasets[i].column(1)))
-            sus_desc = false
+            sus_desc = None
             d = {'-1 z score of similar products' : lower_bound, 'this item price' : price,
                  'desc': sus_desc}
 
     for word in keywords:
         if word in desc:
-            sus_desc = true
+            sus_desc = word
 
     return d
