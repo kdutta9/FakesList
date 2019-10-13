@@ -35,8 +35,9 @@ def validity(item, price, desc):
 
     for i in range(len(items)):
         if item == items[i]:
+            avg_price = np.mean(datasets[i].column(1))
             lower_bound = np.median(datasets[i].column(1)) - (1 * np.std(datasets[i].column(1)))
-            d = {'lower bound': lower_bound, 'this item price': price,
+            d = {'average price': avg_price, 'lower bound': lower_bound, 'this item price': price,
                  'desc': desc, 'keyword': []}
             for word in keywords:
                 if word.lower() in desc.lower():
