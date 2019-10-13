@@ -30,7 +30,8 @@
         </form>
         <button id="submit-button" type="button" name="submit">Submit</button>
       </div>
-      <div id="results">
+      <img src="static/loading.gif" alt="loading" id="loading" class="hidden">
+      <div class="hidden" id="results">
         <h2 id="message">Congrats!</h2>
         <p id="message2">This eBay listing is most likely not a scam!</p>
         <p id="message2">Scam-O-Meter</p>
@@ -40,17 +41,16 @@
         <h2 id="lol">Why?</h2>
         <div id="metrics">
           <div id="price">
-            <p id="show-price">The price on this listing was</p>
-            <p>which is ... </p>
+            <p id="show-price"></p>
+            <p id="price-analysis"></p>
+            <p id="average-price"></p>
           </div>
           <div id="description">
-            <p><b>Analysis of Description:</b></p>
+            <p id="desc-header"><b>Analysis of Description:</b></p>
+            <p id="keywords"></p>
           </div>
         </div>
       </div>
     </main>
-    <footer>
-      <p>&copy; 2019 King Kaichen</p>
-    </footer>
   </body>
 </html>

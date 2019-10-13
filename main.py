@@ -41,7 +41,7 @@ def soup_to_dict(listing_content):
     item = 'laptop'
     for ss in wn.synsets(listing_table['category'].split(' ')[0]):
         for name in ss.lemma_names():
-            if name in get_items(): 
+            if name in get_items():
                 item = [i for i in get_items()][0]
                 break
     return validity(item, price, listing_table['description'])

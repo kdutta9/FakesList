@@ -10,16 +10,6 @@ body {
   background-color: #F1F3F4;
 }
 
-footer {
-  position: relative;
-  bottom: 0;
-  text-align: center;
-}
-
-footer > p {
-  padding-top: 2%;
-}
-
 h1 {
   background-color: white;
   width: 40%;
@@ -100,9 +90,9 @@ input:hover {
   height: fit-content;
   padding-top: 3%;
   padding-bottom: 3%;
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: center; */
 }
 
 #message {
@@ -150,7 +140,7 @@ input:hover {
   box-shadow: 0 1px 2px 0 rgba(60,64,67,0.302), 0 1px 3px 1px rgba(60,64,67,0.149);
   width: 40%;
   padding: 2%;
-  height: 50px;
+  height: fit-content;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -173,4 +163,20 @@ input:hover {
 
 p {
   margin: 0;
+}
+
+img {
+  margin-left: auto;
+  margin-top: auto;
+  width: 10%;
+  height: auto;
+  margin-top: 20px;
+}
+
+#desc-header {
+  padding-bottom: 5px;
+}
+
+#average-price {
+  margin-top: 4px;
 }
