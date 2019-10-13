@@ -29,16 +29,16 @@ keywords = ['agent', 'wire', 'transfer', 'paypal', 'escrow', 'estate']
 def validity(item, price, desc):
     item = item.lower()
     assert (item in items)
+    sus_desc = None
+    d = {}
 
     for i in range(len(items)):
         if item == items[i]:
             lower_bound = np.median(datasets[i].column(1)) - (1 * np.std(datasets[i].column(1)))
-            sus_desc = None
             d = {'-1 z score of similar products' : lower_bound, 'this item price' : price,
                  'desc': sus_desc}
-
-    for word in keywords:
-        if word in desc:
-            sus_desc = word
+            for word in keywords:
+                if word in desc:
+                    d['desc'] = word
 
     return d
