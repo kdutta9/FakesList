@@ -25,6 +25,8 @@ items = ['headphone', 'designer', 'makeup', 'coin', 'jersey',
          'shoe', 'jewelry', 'wallet', 'smartphone', 'wine']
 keywords = ['agent', 'wire', 'transfer', 'paypal', 'escrow', 'estate']
 
+def get_items():
+    return items
 
 def validity(item, price, desc):
     item = item.lower()
