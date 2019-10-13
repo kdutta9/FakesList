@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 import re
 from validity import validity
 from validity import get_items
+import nltk
 from nltk.corpus import wordnet as wn
 
 nltk.download('averaged_perceptron_tagger')
