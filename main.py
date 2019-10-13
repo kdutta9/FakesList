@@ -35,9 +35,10 @@ def get_price(listing_content):
     start_slice = string_content.index('itemprop="price" ') 
     start_slice += len('itemprop="price" content="')
     end_slice = start_slice
-    while (string_content[end_slice] != '"' and string_content[end_slice + 1] != '>'):
+    while (string_content[end_slice] != '.'):
         end_slice += 1
-    price = string_content[start_slice:end_slice:]
+    price = string_content[start_slice:end_slice + 3:]
+    price = price.split('"')[1]
     return price 
 
 def get_feedbackscore(listing_content):
