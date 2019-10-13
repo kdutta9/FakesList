@@ -31,11 +31,11 @@ def soup_to_dict(listing_content):
     return listing_table
 def get_price(listing_content):
     string_content = listing_content.decode('utf-8')
-    
-    start_slice = string_content.index('itemprop="price" content="') 
+    print(string_content)
+    start_slice = string_content.index('itemprop="price" ') 
     start_slice += len('itemprop="price" content="')
     end_slice = start_slice
-    while (string_content[end_slice] != '"'):
+    while (string_content[end_slice] != '"' and string_content[end_slice + 1] != '>'):
         end_slice += 1
     price = string_content[start_slice:end_slice:]
     return price 
