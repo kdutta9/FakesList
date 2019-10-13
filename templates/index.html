@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>FakesList</title>
-    <link rel="stylesheet" href="/static/styles.css">
-    <script src="/static/main.js"></script>
-    <link rel="icon" href="/static/ebay.png">
+    <link rel="stylesheet" href="static/styles.css">
+    <script src="static/main.js"></script>
+    <link rel="icon" href="static/ebay.png">
 
     <!-- update the version number as needed -->
     <!-- <script defer src="/__/firebase/7.2.0/firebase-app.js"></script> -->
@@ -37,19 +37,14 @@
         <div id="likelihood-base">
           <div id="likelihood"></div>
         </div>
-        <!-- <button id="unsure">idk</button>
-        <button id="scam">SCAM!</button> -->
         <h2 id="lol">Why?</h2>
         <div id="metrics">
           <div id="price">
-            <p>This price on this listing was</p>
-            <h2 id="relative">20%</h2> <p><b>lower</b ></p>
-            <p>than the average.</p>
+            <p id="show-price">The price on this listing was</p>
+            <p>which is ... </p>
           </div>
           <div id="description">
-            <p><b>Description:</b></p>
-            <p>- contained poor grammar or strange punctuation</p>
-            <p>- seller asked for personal information</p>
+            <p><b>Analysis of Description:</b></p>
           </div>
         </div>
       </div>
