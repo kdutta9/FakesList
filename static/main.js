@@ -8,6 +8,8 @@
     }
 
     function getURL() {
+      id("loading").classList.remove("hidden");
+      id("results").classList.add("hidden");
       let ebayURL = id("url").value;
       if (ebayURL === "") {
         alert("Please enter a URL");
@@ -28,32 +30,45 @@
         if (qs(".hidden")) {
           qs(".hidden").classList.remove("hidden");
         }
+        id("loading").classList.add("hidden");
         console.log(json);
-        let z = json["-1 z score of similar products"];
+        let average = json["average price"].toFixed(2);
+        let lowerBound = json["lower bound"];
         let price = json["this item price"];
         id("show-price").innerText = "The price of this listing was: $" + price.toString();
-        if (z <= price) {
-          console.log("not a scam");
+        id("average-price").innerText = "The average price of this item is: $" + average.toString();
+        if (price >= lowerBound) {
+          noScam();
+          id("price-analysis").innerText = "which is not abnormally low compared to similar items."
         } else {
           scamLikely();
-          console.log("oops");
+          id("price-analysis").innerText = "which is abnormally low compared to the price of similar items."
+        }
+        if(json["keyword"].length >= 1) {
+          id("keywords").innerText = "We found the keyword(s): ";
+          for (let i = 0; i < json["keyword"].length; i++) {
+            id("keywords").innerText += " " + json["keyword"][i] + ",";
+          }
+          id("keywords").innerText += " which we have determined to be suspicious."
+        } else {
+          id("keywords").innerText = "No suspicious keywords were detected."
         }
       }
 
-    // function unsureBar() {
-    //   let bar = id("likelihood");
-    //   bar.style.width = "66%";
-    //   bar.style.backgroundColor = "rgba(225, 225, 0, 2)";
-    //   id("message").innerText = "Hmm..."
-    //   id("message2").innerText = "This eBay listing is OK. Proceed with caution, but you should  be ok!"
-    //   id("results").style.backgroundColor = "rgba(225, 225, 0, 0.3)";
-    // }
+    function noScam() {
+      id("message").innerText = "Congrats!"
+      id("message2").innerText = "This eBay listing is most likely not a scam!"
+      let bar = id("likelihood");
+      bar.style.width = "100%";
+      bar.style.backgroundColor = "green";
+      id("results").style.backgroundColor = "rgba(108, 240, 50, 0.3)";
+    }
 
     function scamLikely() {
       id("message").innerText = "Warning!"
-      id("message2").innerText = "This eBay listing is probably a scam. Do not buy!"
+      id("message2").innerText = "This eBay listing could be a scam. Use caution!"
       let bar = id("likelihood");
-      bar.style.width = "33%";
+      bar.style.width = "50%";
       bar.style.backgroundColor = "rgba(240, 50, 50)";
       id("results").style.backgroundColor = "rgba(240, 50, 50, 0.3)";
     }

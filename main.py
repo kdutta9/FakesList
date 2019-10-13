@@ -34,7 +34,7 @@ def soup_to_dict(listing_content):
     }
 
     price = float(listing_table['price'])
-    item = 'computer'
+    item = 'jewelry'
     return validity(item, price, listing_table['description'])
 
 def get_price(listing_content):
