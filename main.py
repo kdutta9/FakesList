@@ -5,6 +5,8 @@ import re
 from validity import validity
 from validity import get_items
 from nltk.corpus import wordnet as wn
+
+nltk.download('averaged_perceptron_tagger')
 def get_listing(url):
     response = requests.get(url)
     soup = None
