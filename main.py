@@ -20,16 +20,25 @@ def soup_to_dict(listing_content):
 
     h1_itemprop_elements = filter(lambda el : el.has_attr('itemprop'), souper.findAll('h1'))
     
-    price = list(souper.findAll(id='orgPrc'))[0].string
     listing_table = {
     'name' : get_itemname(listing_content),
     'category' : list(span_itemprop_elements)[1].string,
-    'price' : ''.join(i for i in price if i.isdigit() or i == '.'),
+    'price' : get_price(listing_content),
     'description' : get_descsnippet(listing_content),
     'seller_rating' : get_sellerrating(listing_content)
     }
 
     return listing_table
+def get_price(listing_content):
+    string_content = listing_content.decode('utf-8')
+    
+    start_slice = string_content.index('itemprop="price" content="') 
+    start_slice += len('itemprop="price" content="')
+    end_slice = start_slice
+    while (string_content[end_slice] != '"'):
+        end_slice += 1
+    price = string_content[start_slice:end_slice:]
+    return price 
 
 def get_feedbackscore(listing_content):
     string_content = listing_content.decode('utf-8')
@@ -74,6 +83,5 @@ def get_sellerrating(listing_content):
     end_slice -= len('%&nbsp;Positive feedback</')
     seller_rating = string_content[start_slice:end_slice:]
     return seller_rating
-
-d = get_listing("https://www.ebay.com/itm/Xbox-One-S-1TB-Minecraft-Bundle/123327310996?epid=6029958014&hash=item1cb6e16c94:g:~kMAAOSwGVRdbmud")
+d = get_listing(sys.argv[1])
 print(d)
