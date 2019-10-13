@@ -33,4 +33,4 @@ def validity(item, price):
         if item == items[i]:
             lower_bound = np.median(datasets[i].column(1)) - (1 * np.std(datasets[i].column(1)))
             print(lower_bound)
-            return price >= lower_bound
+            return bool(price >= lower_bound)
