@@ -39,7 +39,7 @@ def validity(item, price, desc):
             d = {'lower bound': lower_bound, 'this item price': price,
                  'desc': desc, 'keyword': []}
             for word in keywords:
-                if word in desc:
+                if word.lower() in desc.lower():
                     d['keyword'] += [word]
 
     return d
