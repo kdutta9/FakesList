@@ -24,6 +24,7 @@
         .then(json => {
           console.log(json) // call other function to put on website here
         })
+        .catch(console.log())
     }
 
     function unsureBar() {
