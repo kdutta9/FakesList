@@ -3,7 +3,8 @@ import sys
 from bs4 import BeautifulSoup
 import re
 from validity import validity
-
+from validity import get_items
+from nltk.corpus import wordnet as wn
 def get_listing(url):
     response = requests.get(url)
     soup = None
@@ -34,7 +35,12 @@ def soup_to_dict(listing_content):
     }
 
     price = float(listing_table['price'])
-    item = 'computer'
+    item = 'laptop'
+    for ss in wn.synsets(listing_table['category'].split(' ')[0]):
+        for name in ss.lemma_names():
+            if name in get_items(): 
+                item = [i for i in get_items()][0]
+                break
     return validity(item, price, listing_table['description'])
 
 def get_price(listing_content):
