@@ -2,6 +2,7 @@ import requests
 import sys
 from bs4 import BeautifulSoup
 import re
+from validity import validity
 
 def get_listing(url):
     response = requests.get(url)
@@ -30,11 +31,10 @@ def soup_to_dict(listing_content):
 
     price = float(listing_table['price'])
     item = 'computer'
-    return validity.validity(item, price)
-    
+    return validity(item, price)
+
 def get_price(listing_content):
     string_content = listing_content.decode('utf-8')
-    print(string_content)
     start_slice = string_content.index('itemprop="price" ')
     start_slice += len('itemprop="price" content="')
     end_slice = start_slice
