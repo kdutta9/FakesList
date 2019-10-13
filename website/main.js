@@ -5,8 +5,8 @@
 
     function init() {
       id("submit-button").addEventListener("click", getURL);
-      id("unsure").addEventListener("click", unsureBar);
-      id("scam").addEventListener("click", scamBar)
+      // id("unsure").addEventListener("click", unsureBar);
+      // id("scam").addEventListener("click", scamBar)
     }
 
     function getURL() {
@@ -34,6 +34,10 @@
       bar.style.backgroundColor = "rgba(240, 50, 50)";
       id("results").style.backgroundColor = "rgba(240, 50, 50, 0.3)";
     }
+
+    // function updatePrice(pct) {
+    //   id("price").innerText = pct + "%";
+    // }
 
 
    /* ------------------------------ Helper Functions  ------------------------------ */
