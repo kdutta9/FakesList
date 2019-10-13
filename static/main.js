@@ -29,12 +29,11 @@
           qs(".hidden").classList.remove("hidden");
         }
         console.log(json);
-        let z = json[0];
+        let z = json["-1 z score of similar products"];
         let price = json["this item price"];
         id("show-price").innerText = "The price of this listing was: $" + price.toString();
         if (z <= price) {
-          id("description").innerText = "";
-          console.log("hi");
+          console.log("not a scam");
         } else {
           scamLikely();
           console.log("oops");

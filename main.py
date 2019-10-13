@@ -20,13 +20,17 @@ def soup_to_dict(listing_content):
     span_itemprop_elements = filter(lambda el : el.has_attr('itemprop'), souper.findAll('span'))
 
     h1_itemprop_elements = filter(lambda el : el.has_attr('itemprop'), souper.findAll('h1'))
-
+    srating = ''
+    try:
+        srating = get_sellerrating(listing_content)
+    except:
+        pass
     listing_table = {
     'name' : get_itemname(listing_content),
     'category' : list(span_itemprop_elements)[1].string,
     'price' : get_price(listing_content),
     'description' : get_descsnippet(listing_content),
-    'seller_rating' : get_sellerrating(listing_content)
+    'seller_rating' : srating
     }
 
     price = float(listing_table['price'])
