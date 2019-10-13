@@ -35,11 +35,11 @@ def validity(item, price, desc):
 
     for i in range(len(items)):
         if item == items[i]:
-            lower_bound = np.median(datasets[i].column(1)) - (1 * np.std(datasets[i].column(1)))
+            lower_bound = np.percentile(datasets[i], 15)
             d = {'lower bound': lower_bound, 'this item price': price,
-                 'desc': desc, 'keyword': ''}
+                 'desc': desc, 'keyword': []}
             for word in keywords:
                 if word in desc:
-                    d['keyword'] = word
+                    d['keyword'] += [word]
 
     return d
