@@ -5,6 +5,8 @@
 
     function init() {
       id("submit-button").addEventListener("click", getURL);
+      id("unsure").addEventListener("click", unsureBar);
+      id("scam").addEventListener("click", scamBar)
     }
 
     function getURL() {
@@ -13,6 +15,24 @@
         alert("Please enter a URL");
       }
       let keyVal = JSON.stringyify({"url": ebayURL});
+    }
+
+    function unsureBar() {
+      let bar = id("likelihood");
+      bar.style.width = "66%";
+      bar.style.backgroundColor = "rgba(225, 225, 0, 2)";
+      id("message").innerText = "Hmm..."
+      id("message2").innerText = "This eBay listing is OK. Proceed with caution, but you should  be ok!"
+      id("results").style.backgroundColor = "rgba(225, 225, 0, 0.3)";
+    }
+
+    function scamBar() {
+      id("message").innerText = "Warning!"
+      id("message2").innerText = "This eBay listing is probably a scam. Do not buy!"
+      let bar = id("likelihood");
+      bar.style.width = "33%";
+      bar.style.backgroundColor = "rgba(240, 50, 50)";
+      id("results").style.backgroundColor = "rgba(240, 50, 50, 0.3)";
     }
 
 

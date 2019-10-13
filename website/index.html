@@ -22,12 +22,21 @@
       <h1>Welcome to FakesList!</h1>
     </header>
     <main>
-      <div>
+      <div id="input-box">
         <h2>Enter your eBay URL:</h2>
         <form>
           <input id="url" type="text" name="URL" value="">
         </form>
         <button id="submit-button" type="button" name="submit">Submit</button>
+      </div>
+      <div id="results">
+        <h2 id="message">Congrats!</h2>
+        <p id="message2">This eBay listing is most likely not a scam!</p>
+        <div id="likelihood-base">
+          <div id="likelihood"></div>
+        </div>
+        <button id="unsure">idk</button>
+        <button id="scam">SCAM!</button>
       </div>
     </main>
     <footer>
