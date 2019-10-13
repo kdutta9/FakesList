@@ -14,7 +14,16 @@
       if (ebayURL === "") {
         alert("Please enter a URL");
       }
-      let keyVal = JSON.stringyify({"url": ebayURL});
+      let keyVal = JSON.stringify({"url": ebayURL});
+      fetch("/get-results", {
+        method: "POST",
+        body: keyVal,
+        "Content-Type": "application/json"
+      })
+        .then(resp => resp.json())
+        .then(json => {
+          console.log(json) // call other function to put on website here
+        })
     }
 
     function unsureBar() {
