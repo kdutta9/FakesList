@@ -23,15 +23,22 @@ datasets = [headphone, designer, makeup, coin, jersey,
 items = ['headphone', 'designer', 'makeup', 'coin', 'jersey',
          'computer', 'laptop', 'purse', 'watch', 'movie',
          'shoe', 'jewelry', 'wallet', 'smartphone', 'wine']
+keywords = ['agent', 'wire', 'transfer', 'paypal', 'escrow', 'estate']
 
 
-def validity(item, price):
+def validity(item, price, desc):
     item = item.lower()
     assert (item in items)
 
     for i in range(len(items)):
         if item == items[i]:
             lower_bound = np.median(datasets[i].column(1)) - (1 * np.std(datasets[i].column(1)))
-            print(lower_bound)
-            d = {'-1 z score of similar products' : lower_bound, 'this item price' : price}
-            return d
+            sus_desc = false
+            d = {'-1 z score of similar products' : lower_bound, 'this item price' : price,
+                 'desc': sus_desc}
+
+    for word in keywords:
+        if word in desc:
+            sus_desc = true
+
+    return d
