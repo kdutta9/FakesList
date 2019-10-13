@@ -1,7 +1,7 @@
 # FakesList
 
 ## Summary
-Fakeslist is a website for users looking to avoid scams on Ebay. Users input a URL of a specific Ebay product listing they are interested in purchasing, and Fakeslist evaluates the product price against similar item prices and checks its description for keyword signs of possible scams, and displays metrics on the likelihood of the listing being a scam. 
+Fakeslist is a website for users looking to avoid scams on Ebay for "buy now" items. Users input a URL of a specific Ebay product listing they are interested in purchasing, and Fakeslist evaluates the product price against similar item prices and checks its description for keyword signs of possible scams, and displays metrics on the likelihood of the listing being a scam. 
 
 Currently, products in categories 'coin', 'computer', 'designer', 'headphone', 'jersey', 'jewelry', 'laptop', 'shoe', 'smartphone', 'wallet', 'watch', 'wine' have supported dataset gathering. These are commonly scammed items for sellers on Ebay. 
 
