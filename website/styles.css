@@ -1,0 +1,68 @@
+
+@import url('https://fonts.googleapis.com/css?family=Assistant&display=swap');
+
+body {
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  text-align: center;
+  font-family: 'Assistant', sans-serif;
+  /* background-color: #F1F3F4; */
+}
+
+footer {
+  width: 80%;
+  position: absolute;
+  bottom: 0;
+}
+
+h2 {
+  font-weight: normal;
+  margin-top: 0;
+}
+
+button {
+  background-color: #F1F3F4;
+  border: none;
+  width: 100px;
+  height: 40px;
+  font-family: 'Assistant', sans-serif;
+  border-radius: 5px;
+  box-shadow: 0 1px 2px 0 rgba(60,64,67,0.302);
+  align-self: center;
+  margin-top: 3%;
+  font-size: 1em;
+}
+
+button:hover {
+  background-color: #e6e6e6;
+  cursor: pointer;
+}
+
+input {
+  height: 30px;
+  border-radius: 8px;
+  border: 0.9px solid transparent;
+  box-shadow: 0 1px 2px 0 rgba(60,64,67,0.302);
+  width: 50%;
+  font-family: 'Assistant', sans-serif;
+  padding-left: 6px;
+}
+
+input:hover {
+  border: 0.9px solid #e6e6e6;
+}
+
+div {
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 1px 2px 0 rgba(60,64,67,0.302);
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: white;
+}
